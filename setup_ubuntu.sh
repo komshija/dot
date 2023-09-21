@@ -13,7 +13,11 @@ sudo apt-get install -y g++
 sudo apt-get install -y clang
 sudo apt-get install -y clang-format
 sudo apt-get install -y clang-tidy
-		    	
+	
+git config --global user.email  "milan.r.radosavljevic@outlook.com"
+git config --global user.name "Milan Radosavljevic" 
+
+	    	
 # TODO: Add installation of gnome tweaks extension for firefox
 # TODO: Install extensions
 
