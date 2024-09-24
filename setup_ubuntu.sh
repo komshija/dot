@@ -13,7 +13,8 @@ sudo apt-get install -y g++
 sudo apt-get install -y clang
 sudo apt-get install -y clang-format
 sudo apt-get install -y clang-tidy
-	
+
+
 git config --global user.email  "milan.r.radosavljevic@outlook.com"
 git config --global user.name "Milan Radosavljevic" 
 
@@ -88,7 +89,6 @@ gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
 
 ######################################################################################
-
 # Tilix setup
 
 
@@ -98,6 +98,12 @@ sudo update-alternatives --config x-terminal-emulator
 mkdir -p /tmp/tilix
 wget https://github.com/komshija/dot/releases/download/v0.0.1/tilix.dconf -P /tmp/tilix/
 dconf load /com/gexperts/Tilix/ < /tmp/tilix/tilix.dconf
+
+######################################################################################
+# Kitty setup
+
+sudo apt install -y kitty
+sudo update-alternatives --config x-terminal-emulator
 
 
 ######################################################################################
@@ -136,3 +142,14 @@ sed -i -e '$aalias env="source ./bin/activate"' .zshrc
 
 source ~/.zshrc
 
+######################################################################################
+# Tmux setup
+
+sudo apt-get install -y tmux
+wget https://github.com/komshija/dot/releases/download/v0.0.1/tmux.conf -P ~/.tmux.conf
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# Run manually one by one
+tmux
+sh -c "~/.tmux/plugins/tpm/scripts/update_plugin.sh"
+tmux kill-server
